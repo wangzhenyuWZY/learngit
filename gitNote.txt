@@ -5,3 +5,7 @@ git命令
 	git reflog//查看命令历史
 	git status//查看状态
 	git diff  //查看修改的具体内容
+	git checkout -- readme.txt //撤销修改，让文件回到最近一次add或commit时的状态
+	git reset HEAD file //既可以回退版本，又可以把暂存区的修改回退到工作区
+	git rm file //从版本库中删除该文件
+	rm file //工作区删除文件
