@@ -1,0 +1,7 @@
+git命令
+	git add   //添加到仓库
+	git commit -m '提交注释'  //提交
+	git log   //查看提交历史
+	git reflog//查看命令历史
+	git status//查看状态
+	git diff  //查看修改的具体内容
