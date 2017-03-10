@@ -20,7 +20,7 @@ gulpfile.js文件：
 	var concat = require('gulp-concat');
 	var uglify = require('gulp-uglify');
 	var rename = require('gulp-rename');
-	
+	var browserSync = require('browser-sync').create();//页面实时刷新组件
 	//检查脚本
 	//Lint任务会检查 js/ 目录下得js文件有没有报错或警告。
 	gulp.task('lint',function(){
@@ -34,7 +34,8 @@ gulpfile.js文件：
 	gulp.task('sass',function(){
 		gulp.src('./scss/*.scss')
 			.pipe(sass())
-			.pipe(gulp.dest('./css'));
+			.pipe(gulp.dest('./css'))
+			.pipe(browserSync.stream());
 	});
 	
 	//合并压缩文件

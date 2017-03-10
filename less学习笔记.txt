@@ -1,0 +1,54 @@
+1.声明变量：@
+2.混合：
+	.box{.border;}
+	.border{border:1px solid #eee;}
+混合带参数
+		.box{.border_02();}
+		.border_02(@border-width:5px){border:solid yellow @border-width;}
+		注意：当混合带参数时使用要加（括号）；
+		
+3.匹配模式
+	.triangle(top,@w:5px,@c:#ccc){
+		border-width:@w;
+		border-color:transparent transparent @c transparent;
+		border-style:dashed dashed solid dashed;
+	}
+	.triangle(bottom,@w:5px,@c:#ccc){
+		border-width:@w;
+		border-color:@c transparent transparent transparent;
+		border-style:slide dashed dashed dashed;
+	}
+	.triangle(@_,@w:5px,@c:#ccc){
+		width:0;
+		height:0;
+		overflow:hidden;
+	}
+	.sanjiao{.triangle(top,100px)}
+	
+	注意：@_,代表不管匹配到谁都得带上其内代码。
+	
+4.嵌套
+	ul{
+		width:0;
+		height:0;
+		
+		li{
+			width:0;
+			height:0;
+		}
+		a{
+			float:left;
+			//注意：& 代表他的上一层选择器
+			&:hover{
+				color:red;
+			}
+		}
+	}
+	
+5.@arguments 继承所有参数
+	.border(@w:30px,@h:30px,@c:red){
+		border:@arguments;
+	}
+	
+6.避免编译
+	~"此处代码不会被less编译"
